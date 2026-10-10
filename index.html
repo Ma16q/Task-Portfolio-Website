@@ -1,21 +1,424 @@
 <!DOCTYPE html>
-<html lang="en" style="background-color:rgb(223, 234, 245);">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohamed Ahmed | Portfolio & Projects</title>
+  <meta name="description" content="Portfolio of Mohamed Ahmed (Ma16q) — IAU Student & Software Developer. Python, Java, React, Web Dev & Glassmorphism.">
+  <meta name="author" content="Mohamed Ahmed">
+  <meta name="theme-color" content="#090e1a">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Mohammed Ahmed Portfolio</h1>
-<h2>I am Web Developer</h2>
-<h3><a href="assets/Game Ranking Project.html">Game Ranking project</a></h3>
-<img src="assets/images/ga.png" alt="game ranking project" style="border-radius:7%;">
 
-<h3><a href="assets/Birthday Invite Project.html">Birthday Invite Project</a></h3>
-<img src="assets/images/br.png" alt="Birthday Invite Project" style="border-radius:7%;" >
+  <!-- Ambient Glow Behind Glass -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
 
-    <a href="./public/about.html">About Me</a>
-    <a href="./public/contact.html">Contact Me</a>
+  <!-- Navigation -->
+  <header class="navbar-wrapper">
+    <nav class="navbar" aria-label="Main Navigation">
+      <a href="#hero" class="brand-logo" id="brandLogo">
+        <span class="logo-badge">MA</span>
+        <span>Mohamed Ahmed</span>
+      </a>
 
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#about" class="nav-link">About & Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="https://github.com/Ma16q" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub ↗</a></li>
+      </ul>
+
+      <a href="#contact" class="nav-cta">Say Hello 👋</a>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        ☰
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            <span>IAU Student • Software & Web Developer</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Mohamed</span>.<br>
+            Developer & Creator.
+          </h1>
+
+          <p class="hero-subtitle">
+            Student at Imam Abdulrahman Bin Faisal University (IAU). Building Python tools, Java apps, React projects, and modern Glassmorphism interfaces.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn-primary">
+              <span>View Projects</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+            <a href="https://github.com/Ma16q" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+              <span>GitHub (Ma16q) ↗</span>
+            </a>
+            <a href="#contact" class="btn-secondary">
+              <span>Contact ✉</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3D & Reality Motion Card Showcase -->
+        <div class="hero-visual">
+          <div class="avatar-card-container" id="avatarCardContainer">
+            <div class="avatar-3d-card" id="avatar3dCard" title="Click to flip between 3D and Real Photo">
+              <!-- Front Face: 3D Avatar (Blended with site dark colors) -->
+              <div class="card-face face-3d">
+                <img src="assets/images/mohammed_3d.jpg" alt="Mohamed Ahmed - 3D Avatar" id="heroAvatar">
+                <div class="floating-glass-tag">
+                  <span aria-hidden="true">✨</span>
+                  <span id="avatarTagText">3D Avatar</span>
+                </div>
+              </div>
+
+              <!-- Back Face: Real Photo (Industr-iathon Advanced Technology) -->
+              <div class="card-face face-real">
+                <img src="assets/images/mohammed_real.jpg" alt="Mohamed Ahmed - Real Photo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Flip Toggle Button -->
+          <button type="button" class="flip-toggle-btn" id="flipToggleBtn">
+            <span>📸 Switch to Real Photo</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY HIGHLIGHTS ROW -->
+    <section class="highlights-section">
+      <div class="container">
+        <div class="highlights-grid">
+          <div class="highlight-card glass-panel">
+            <div class="highlight-icon">🎓</div>
+            <div class="highlight-info">
+              <h3>IAU Student</h3>
+              <p>Imam Abdulrahman Bin Faisal University, Dammam.</p>
+            </div>
+          </div>
+
+          <div class="highlight-card glass-panel">
+            <div class="highlight-icon">🏆</div>
+            <div class="highlight-info">
+              <h3>Industr-iathon</h3>
+              <p>Advanced Technology Track (ISE Club Participant).</p>
+            </div>
+          </div>
+
+          <div class="highlight-card glass-panel">
+            <div class="highlight-icon">⚡</div>
+            <div class="highlight-info">
+              <h3>Multi-Stack</h3>
+              <p>Python, Java, React, Web Dev & Clean Code.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION (Real GitHub & Published Projects) -->
+    <section class="projects-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pill">Portfolio & Code</span>
+          <h2 class="section-title">Projects & Published Apps</h2>
+        </div>
+
+        <div class="projects-grid">
+          <!-- MotriLog (Python) -->
+          <article class="project-card glass-panel">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Smart Maintenance</span>
+              <span class="tag">GitHub</span>
+            </div>
+            <h3 class="project-title">MotriLog</h3>
+            <p class="project-summary">
+              Smart vehicle maintenance tracker to monitor service history, predict vehicle repairs, and locate nearby workshops.
+            </p>
+            <div class="project-actions">
+              <a href="https://github.com/Ma16q/MotriLog" target="_blank" rel="noopener noreferrer" class="btn-card launch">
+                <span>View on GitHub ↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- ghos.shop (Live Store) -->
+          <article class="project-card glass-panel">
+            <div class="project-tags">
+              <span class="tag pink">E-Commerce</span>
+              <span class="tag pink">Live Store</span>
+              <span class="tag">Gaming</span>
+            </div>
+            <h3 class="project-title">ghos (GameHub Store)</h3>
+            <p class="project-summary">
+              Live online gaming storefront and digital products hub for gaming enthusiasts.
+            </p>
+            <div class="project-actions">
+              <a href="https://ghos.shop" target="_blank" rel="noopener noreferrer" class="btn-card launch">
+                <span>Live Website (ghos.shop) ↗</span>
+              </a>
+              <a href="https://github.com/Ma16q/ghos" target="_blank" rel="noopener noreferrer" class="btn-card outline">
+                <span>Repo ↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Numbers Game (Java) -->
+          <article class="project-card glass-panel">
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">OOP</span>
+              <span class="tag">Game Logic</span>
+            </div>
+            <h3 class="project-title">Numbers-Game</h3>
+            <p class="project-summary">
+              Interactive numeric challenge game built with Java logic and object-oriented architecture.
+            </p>
+            <div class="project-actions">
+              <a href="https://github.com/Ma16q/Numbers-Game" target="_blank" rel="noopener noreferrer" class="btn-card launch">
+                <span>View on GitHub ↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- My-First-React -->
+          <article class="project-card glass-panel">
+            <div class="project-tags">
+              <span class="tag pink">React</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Frontend</span>
+            </div>
+            <h3 class="project-title">My-First-React</h3>
+            <p class="project-summary">
+              Interactive React playground exploring modern component hierarchy and state management.
+            </p>
+            <div class="project-actions">
+              <a href="https://github.com/Ma16q/My-First-React" target="_blank" rel="noopener noreferrer" class="btn-card launch">
+                <span>View on GitHub ↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Game Ranking Project -->
+          <article class="project-card glass-panel">
+            <div class="project-preview">
+              <img src="assets/images/ga.png" alt="Game Ranking Project preview" class="project-img">
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">Gaming</span>
+            </div>
+            <h3 class="project-title">Game Ranking Project</h3>
+            <p class="project-summary">
+              Top 3 games of all time: Ark, Kingdom Come 2, and Elden Ring.
+            </p>
+            <div class="project-actions">
+              <a href="assets/Game Ranking Project.html" class="btn-card launch">
+                <span>Open Project ↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Birthday Invite Project (With IAU Location!) -->
+          <article class="project-card glass-panel">
+            <div class="project-preview">
+              <img src="assets/images/br.png" alt="Birthday Invite Project preview" class="project-img">
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-tags">
+              <span class="tag pink">HTML5</span>
+              <span class="tag pink">IAU Location</span>
+            </div>
+            <h3 class="project-title">Birthday Invite Project</h3>
+            <p class="project-summary">
+              Celebration invite pinned at <strong>Imam Abdulrahman Bin Faisal University (IAU)</strong> with map link.
+            </p>
+            <div class="project-actions">
+              <a href="assets/Birthday Invite Project.html" class="btn-card launch">
+                <span>Open Project ↗</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT & REAL SKILLS -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pill">About & Skills</span>
+          <h2 class="section-title">Who I Am</h2>
+        </div>
+
+        <div class="about-card glass-panel">
+          <div class="about-text">
+            <h3>Mohamed Ahmed (Ma16q)</h3>
+            <p>
+              Student at <strong>Imam Abdulrahman Bin Faisal University (IAU)</strong>, Eastern Province, Saudi Arabia.
+            </p>
+            <p>
+              Participant in <strong>Industr-iathon</strong> (Advanced Technology Track with the ISE Club). I enjoy building software tools, web platforms, and responsive interfaces with clean code and modern Glassmorphism aesthetics.
+            </p>
+
+            <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <a href="https://github.com/Ma16q" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 0.6rem 1.2rem; font-size: 0.88rem;">
+                GitHub Profile ↗
+              </a>
+              <a href="https://linktr.ee/Mohamed_Ahmed" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 0.6rem 1.2rem; font-size: 0.88rem;">
+                Linktree ↗
+              </a>
+              <a href="./public/about.html" class="btn-secondary" style="padding: 0.6rem 1.2rem; font-size: 0.88rem;">
+                Full Bio →
+              </a>
+            </div>
+          </div>
+
+          <div class="about-side-box">
+            <!-- Real Skills -->
+            <div class="mini-glass-card">
+              <h4>🛠️ Technical Skills</h4>
+              <div class="skills-grid" style="margin-top: 0.5rem;">
+                <span class="skill-pill">🐍 Python</span>
+                <span class="skill-pill">☕ Java</span>
+                <span class="skill-pill">⚛️ React</span>
+                <span class="skill-pill">⚡ JavaScript</span>
+                <span class="skill-pill">🌐 HTML5</span>
+                <span class="skill-pill">🎨 CSS3 & Glassmorphism</span>
+                <span class="skill-pill">🐙 Git & GitHub</span>
+                <span class="skill-pill">⚙️ Software Engineering</span>
+              </div>
+            </div>
+
+            <!-- Gaming & Passions -->
+            <div class="mini-glass-card">
+              <h4>🎮 Favorite Games</h4>
+              <p style="margin-top: 0.3rem;">
+                Ark: Survival Evolved • Kingdom Come 2 • Elden Ring
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pill">Reach Out</span>
+          <h2 class="section-title">Contact</h2>
+        </div>
+
+        <div class="contact-card glass-panel">
+          <!-- Info -->
+          <div class="contact-info">
+            <h3>Let's Connect</h3>
+            <p>Reach out directly via email, GitHub, or send a message:</p>
+
+            <div class="contact-channels">
+              <a href="mailto:abcb1240009m@gmail.com" class="channel-item" id="copyEmailBtn" title="Click to copy email">
+                <div class="channel-icon">✉️</div>
+                <div>
+                  <div class="channel-label">Email (Click to copy)</div>
+                  <div class="channel-val">abcb1240009m@gmail.com</div>
+                </div>
+              </a>
+
+              <a href="https://github.com/Ma16q" target="_blank" rel="noopener noreferrer" class="channel-item">
+                <div class="channel-icon">🐙</div>
+                <div>
+                  <div class="channel-label">GitHub</div>
+                  <div class="channel-val">github.com/Ma16q</div>
+                </div>
+              </a>
+
+              <a href="https://www.google.com/maps/search/?api=1&query=Imam+Abdulrahman+Bin+Faisal+University" target="_blank" rel="noopener noreferrer" class="channel-item">
+                <div class="channel-icon">📍</div>
+                <div>
+                  <div class="channel-label">University / Location</div>
+                  <div class="channel-val">IAU Campus, Dammam, Saudi Arabia</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Form -->
+          <div class="contact-form-wrap">
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label for="senderName">Name</label>
+                <input type="text" id="senderName" class="form-control" placeholder="Your name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="senderEmail">Email</label>
+                <input type="email" id="senderEmail" class="form-control" placeholder="Your email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="senderMessage">Message</label>
+                <textarea id="senderMessage" class="form-control" placeholder="Your message..." rows="3" required></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                <span>Send Message 🚀</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast Notification -->
+  <div class="toast-notice" id="toastNotice" role="alert" aria-live="polite">
+    <span aria-hidden="true">✨</span>
+    <span id="toastText">Done!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-copy">
+        © 2026 Mohamed Ahmed (Ma16q) • Imam Abdulrahman Bin Faisal University (IAU)
+      </div>
+      <div class="footer-links">
+        <a href="#hero">Top ↑</a>
+        <a href="https://github.com/Ma16q" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linktr.ee/Mohamed_Ahmed" target="_blank" rel="noopener noreferrer">Linktree</a>
+        <a href="./public/about.html">About</a>
+        <a href="./public/contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

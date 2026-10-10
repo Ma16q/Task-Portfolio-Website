@@ -1,9 +1,66 @@
-<h1>Contact Me</h1>
-<p>Tel: +123456789</p>
-<p>Email: me@gmail.com</p>
-<p>Address:</p>
-<p>
-  123 North Street<br />
-  Some City<br />
-  Some Country <br />
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Mohamed Ahmed (Ma16q)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <!-- Ambient Glow -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <div class="container subpage-wrapper">
+    <a href="../index.html" class="back-btn">
+      <span aria-hidden="true">←</span>
+      <span>Back</span>
+    </a>
+
+    <main class="subpage-card glass-panel" style="margin-top: 1.5rem;">
+      <span class="section-pill">Contact</span>
+      <h1 class="section-title" style="margin-top: 0.5rem;">Get In Touch</h1>
+
+      <div class="contact-channels" style="max-width: 480px; margin-top: 1.5rem;">
+        <a href="mailto:abcb1240009m@gmail.com" class="channel-item" id="copyEmailBtn">
+          <div class="channel-icon">✉️</div>
+          <div>
+            <div class="channel-label">Email (Click to copy)</div>
+            <div class="channel-val">abcb1240009m@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="https://github.com/Ma16q" target="_blank" rel="noopener noreferrer" class="channel-item">
+          <div class="channel-icon">🐙</div>
+          <div>
+            <div class="channel-label">GitHub</div>
+            <div class="channel-val">github.com/Ma16q</div>
+          </div>
+        </a>
+
+        <a href="https://www.google.com/maps/search/?api=1&query=Imam+Abdulrahman+Bin+Faisal+University" target="_blank" rel="noopener noreferrer" class="channel-item">
+          <div class="channel-icon">📍</div>
+          <div>
+            <div class="channel-label">University / Location</div>
+            <div class="channel-val">IAU Campus, Dammam, Saudi Arabia</div>
+          </div>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-notice" id="toastNotice" role="alert" aria-live="polite">
+    <span aria-hidden="true">✨</span>
+    <span id="toastText">Copied!</span>
+  </div>
+
+  <script src="../script.js"></script>
+</body>
+</html>
