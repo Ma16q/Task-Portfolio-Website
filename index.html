@@ -42,6 +42,10 @@
 
       <a href="#contact" class="nav-cta">Say Hello 👋</a>
 
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode" title="Toggle Light / Dark Mode">
+        <span id="themeIcon">🌙</span>
+      </button>
+
       <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
         ☰
       </button>
@@ -60,7 +64,7 @@
 
           <h1 class="hero-title">
             Hi, I'm <span class="gradient-text">Mohamed</span>.<br>
-            Developer & Creator.
+            Developer & 3D Modeler.
           </h1>
 
           <p class="hero-subtitle">
@@ -85,9 +89,9 @@
         <div class="hero-visual">
           <div class="avatar-card-container" id="avatarCardContainer">
             <div class="avatar-3d-card" id="avatar3dCard" title="Click to flip between 3D and Real Photo">
-              <!-- Front Face: 3D Avatar (Blended with site dark colors) -->
+              <!-- Front Face: 3D Avatar (Event match backdrop version) -->
               <div class="card-face face-3d">
-                <img src="assets/images/mohammed_3d.jpg" alt="Mohamed Ahmed - 3D Avatar" id="heroAvatar">
+                <img src="assets/images/mohammed_3d_2.jpg" alt="Mohamed Ahmed - 3D Avatar" id="heroAvatar">
                 <div class="floating-glass-tag">
                   <span aria-hidden="true">✨</span>
                   <span id="avatarTagText">3D Avatar</span>
@@ -97,14 +101,21 @@
               <!-- Back Face: Real Photo (Industr-iathon Advanced Technology) -->
               <div class="card-face face-real">
                 <img src="assets/images/mohammed_real.jpg" alt="Mohamed Ahmed - Real Photo">
+                <div class="floating-glass-tag real-tag">
+                  <span aria-hidden="true">📸</span>
+                  <span>Reality</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Flip Toggle Button -->
-          <button type="button" class="flip-toggle-btn" id="flipToggleBtn">
-            <span>📸 Switch to Real Photo</span>
-          </button>
+          <!-- Flip & 3D Controls -->
+          <div class="avatar-controls">
+            <!-- Flip Toggle Button -->
+            <button type="button" class="flip-toggle-btn" id="flipToggleBtn" aria-label="Toggle between 3D Avatar and Real Photo">
+              <span id="flipToggleText">📸 Switch to Real Photo</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -149,16 +160,80 @@
         </div>
 
         <div class="projects-grid">
-          <!-- MotriLog (Python) -->
-          <article class="project-card glass-panel">
+          <!-- MotriLog (Python & 3D Interactive WebGL) -->
+          <article class="project-card glass-panel" id="motrilogCard">
+            <!-- View Mode Switcher -->
+            <div class="motrilog-view-toggle" aria-label="Select MotriLog View Mode">
+              <button type="button" class="motri-tab-btn active" id="tab3dModel" title="Interactive 3D WebGL Car Model">
+                <span>🎮 3D Interactive</span>
+              </button>
+              <button type="button" class="motri-tab-btn" id="tab3dHologram" title="Static 3D Hologram Telemetry View">
+                <span>🖼️ Hologram UI</span>
+              </button>
+            </div>
+
+            <div class="project-preview motrilog-preview-wrap">
+              <!-- Real-time Interactive 3D WebGL Canvas -->
+              <div class="car3d-container active" id="motrilog3dContainer">
+                <canvas id="motrilog3dCanvas"></canvas>
+                <!-- 3D HUD Controls Toolbar -->
+                <div class="car3d-hud-toolbar">
+                  <button type="button" class="car3d-tool-btn active" id="car3dBtnRotate" title="Toggle Auto-Rotation">
+                    <span>🔄 Rotate</span>
+                  </button>
+                  <button type="button" class="car3d-tool-btn" id="car3dBtnWireframe" title="Toggle 3D Diagnostic Wireframe">
+                    <span>⚡ Wireframe</span>
+                  </button>
+                  <button type="button" class="car3d-tool-btn" id="car3dBtnColor" title="Change Cyber Neon Paint">
+                    <span>🎨 Color</span>
+                  </button>
+                  <button type="button" class="car3d-tool-btn" id="car3dBtnReset" title="Reset Camera View">
+                    <span>⟲</span>
+                  </button>
+                </div>
+                <!-- Interactive Drag Hint -->
+                <div class="car3d-drag-hint" id="car3dHint">
+                  <span>👆 Drag to Rotate in 3D</span>
+                </div>
+                <!-- 3D Badge -->
+                <div class="holo-badge">
+                  <span class="holo-radar-dot"></span>
+                  <span>WebGL 3D Interactive</span>
+                </div>
+              </div>
+
+              <!-- Static 3D Hologram Render View -->
+              <div class="car3d-static-render" id="motrilogStaticRender">
+                <img src="assets/images/project_motrilog_3d.jpg" alt="MotriLog 3D Holographic Vehicle Telemetry" class="project-img" loading="lazy">
+                <div class="holo-scan-line"></div>
+                <div class="holo-badge">
+                  <span class="holo-radar-dot"></span>
+                  <span>3D Telemetry HUD</span>
+                </div>
+                <div class="holo-hotspots">
+                  <span class="hotspot hotspot-engine" title="Engine: 94% Optimal">
+                    <span class="hotspot-pulse"></span>
+                    <span class="hotspot-label">Engine 94%</span>
+                  </span>
+                  <span class="hotspot hotspot-tire" title="Tire Pressure: 35 PSI">
+                    <span class="hotspot-pulse"></span>
+                    <span class="hotspot-label">Tires 35 PSI</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="project-overlay"></div>
+            </div>
+
             <div class="project-tags">
               <span class="tag">Python</span>
               <span class="tag">Smart Maintenance</span>
+              <span class="tag cyan">Three.js WebGL 3D</span>
               <span class="tag">GitHub</span>
             </div>
             <h3 class="project-title">MotriLog</h3>
             <p class="project-summary">
-              Smart vehicle maintenance tracker to monitor service history, predict vehicle repairs, and locate nearby workshops.
+              Smart vehicle maintenance platform with real-time 3D interactive car telemetry to track service records, predict repair schedules, and monitor live vehicle health.
             </p>
             <div class="project-actions">
               <a href="https://github.com/Ma16q/MotriLog" target="_blank" rel="noopener noreferrer" class="btn-card launch">
@@ -169,6 +244,10 @@
 
           <!-- ghos.shop (Live Store) -->
           <article class="project-card glass-panel">
+            <div class="project-preview">
+              <img src="assets/images/project_ghos.jpg" alt="ghos.shop preview" class="project-img" loading="lazy">
+              <div class="project-overlay"></div>
+            </div>
             <div class="project-tags">
               <span class="tag pink">E-Commerce</span>
               <span class="tag pink">Live Store</span>
@@ -190,6 +269,10 @@
 
           <!-- Numbers Game (Java) -->
           <article class="project-card glass-panel">
+            <div class="project-preview">
+              <img src="assets/images/project_numbers.jpg" alt="Numbers Game preview" class="project-img" loading="lazy">
+              <div class="project-overlay"></div>
+            </div>
             <div class="project-tags">
               <span class="tag">Java</span>
               <span class="tag">OOP</span>
@@ -208,6 +291,10 @@
 
           <!-- My-First-React -->
           <article class="project-card glass-panel">
+            <div class="project-preview">
+              <img src="assets/images/project_react.jpg" alt="My-First-React preview" class="project-img" loading="lazy">
+              <div class="project-overlay"></div>
+            </div>
             <div class="project-tags">
               <span class="tag pink">React</span>
               <span class="tag">JavaScript</span>
@@ -265,6 +352,50 @@
               </a>
             </div>
           </article>
+
+          <!-- Mustahabbat Sunan (Android) -->
+          <article class="project-card glass-panel" style="border-top: 2px solid hsl(145, 70%, 45%);">
+            <div class="project-preview">
+              <img src="assets/images/project_sunan_real.png" alt="مستحبات السنن - Google Play" class="project-img" loading="lazy">
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-tags">
+              <span class="tag" style="background: hsl(145, 60%, 20%); color: hsl(145, 80%, 70%);">Android</span>
+              <span class="tag" style="background: hsl(145, 60%, 20%); color: hsl(145, 80%, 70%);">Java</span>
+              <span class="tag" style="background: hsl(145, 60%, 20%); color: hsl(145, 80%, 70%);">📱 Google Play</span>
+            </div>
+            <h3 class="project-title">مستحبات السنن</h3>
+            <p class="project-summary">
+              Published Android app on Google Play — Islamic Sunnah habits tracker. Built with Android Studio & Java.
+            </p>
+            <div class="project-actions">
+              <a href="https://play.google.com/store/apps/details?id=com.mustahabbat.sunan" target="_blank" rel="noopener noreferrer" class="btn-card launch" style="background: hsl(145, 60%, 30%);">
+                <span>View on Google Play ↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Musbihati (Android) -->
+          <article class="project-card glass-panel" style="border-top: 2px solid hsl(145, 70%, 45%);">
+            <div class="project-preview">
+              <img src="assets/images/project_musbihati_real.png" alt="مسبحتي - Google Play" class="project-img" loading="lazy">
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-tags">
+              <span class="tag" style="background: hsl(145, 60%, 20%); color: hsl(145, 80%, 70%);">Android</span>
+              <span class="tag" style="background: hsl(145, 60%, 20%); color: hsl(145, 80%, 70%);">Java</span>
+              <span class="tag" style="background: hsl(145, 60%, 20%); color: hsl(145, 80%, 70%);">📱 Google Play</span>
+            </div>
+            <h3 class="project-title">مسبحتي</h3>
+            <p class="project-summary">
+              Published Android app on Google Play — Digital tasbih & dhikr counter. Built with Android Studio & Java.
+            </p>
+            <div class="project-actions">
+              <a href="https://play.google.com/store/apps/details?id=com.musbihati" target="_blank" rel="noopener noreferrer" class="btn-card launch" style="background: hsl(145, 60%, 30%);">
+                <span>View on Google Play ↗</span>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -313,6 +444,8 @@
                 <span class="skill-pill">🎨 CSS3 & Glassmorphism</span>
                 <span class="skill-pill">🐙 Git & GitHub</span>
                 <span class="skill-pill">⚙️ Software Engineering</span>
+                <span class="skill-pill">🤖 Android Studio</span>
+                <span class="skill-pill">🎲 3D Modeling</span>
               </div>
             </div>
 
@@ -419,6 +552,12 @@
     </div>
   </footer>
 
+  <!-- Three.js 3D WebGL Engine & MotriLog Interactive Car -->
+  <script src="assets/js/three.min.js"></script>
+  <script src="assets/js/DRACOLoader.js"></script>
+  <script src="assets/js/GLTFLoader.js"></script>
+  <script src="assets/models/ferrari_data.js"></script>
+  <script src="assets/js/car3d.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

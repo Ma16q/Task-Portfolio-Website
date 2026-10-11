@@ -95,27 +95,78 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- 5. 3D & REALITY INTERACTIVE MOTION CARD ---
   const avatarCard = document.getElementById('avatar3dCard');
   const flipToggleBtn = document.getElementById('flipToggleBtn');
+  const flipToggleText = document.getElementById('flipToggleText');
   const avatarTagText = document.getElementById('avatarTagText');
   const cardContainer = document.getElementById('avatarCardContainer');
+  const heroAvatar = document.getElementById('heroAvatar');
+  const btnStyleBackdrop = document.getElementById('btnStyleBackdrop');
+  const btnStyleDark = document.getElementById('btnStyleDark');
+  const face3d = avatarCard ? avatarCard.querySelector('.face-3d') : null;
+  const faceReal = avatarCard ? avatarCard.querySelector('.face-real') : null;
+
+  function updateCardFlip(shouldFlip) {
+    if (!avatarCard) return;
+    if (shouldFlip) {
+      avatarCard.classList.add('flipped');
+      avatarCard.style.transform = 'rotateY(180deg)';
+      if (face3d) {
+        face3d.style.opacity = '0';
+        face3d.style.visibility = 'hidden';
+        face3d.style.pointerEvents = 'none';
+      }
+      if (faceReal) {
+        faceReal.style.opacity = '1';
+        faceReal.style.visibility = 'visible';
+        faceReal.style.pointerEvents = 'auto';
+      }
+      if (flipToggleText) {
+        flipToggleText.textContent = '✨ Switch to 3D Avatar';
+      }
+      if (avatarTagText) {
+        avatarTagText.textContent = 'Reality';
+      }
+    } else {
+      avatarCard.classList.remove('flipped');
+      avatarCard.style.transform = 'rotateY(0deg)';
+      if (face3d) {
+        face3d.style.opacity = '1';
+        face3d.style.visibility = 'visible';
+        face3d.style.pointerEvents = 'auto';
+      }
+      if (faceReal) {
+        faceReal.style.opacity = '0';
+        faceReal.style.visibility = 'hidden';
+        faceReal.style.pointerEvents = 'none';
+      }
+      if (flipToggleText) {
+        flipToggleText.textContent = '📸 Switch to Real Photo';
+      }
+      if (avatarTagText) {
+        avatarTagText.textContent = '3D Avatar';
+      }
+    }
+  }
 
   function toggleFlip() {
     if (!avatarCard) return;
-    avatarCard.classList.toggle('flipped');
-    const isFlipped = avatarCard.classList.contains('flipped');
-    if (avatarTagText) {
-      avatarTagText.textContent = isFlipped ? 'Reality' : '3D Avatar';
-    }
-    if (flipToggleBtn) {
-      flipToggleBtn.innerHTML = isFlipped ? '✨ Switch to 3D Avatar' : '📸 Switch to Real Photo';
-    }
+    const isCurrentlyFlipped = avatarCard.classList.contains('flipped');
+    updateCardFlip(!isCurrentlyFlipped);
   }
 
   if (avatarCard) {
-    avatarCard.addEventListener('click', toggleFlip);
+    avatarCard.addEventListener('click', (e) => {
+      toggleFlip();
+    });
   }
+
   if (flipToggleBtn) {
-    flipToggleBtn.addEventListener('click', toggleFlip);
+    flipToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleFlip();
+    });
   }
+
+
 
   // 3D Parallax Tilt Effect on Mouse Move
   if (cardContainer && avatarCard) {
@@ -135,4 +186,70 @@ document.addEventListener('DOMContentLoaded', () => {
       avatarCard.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
     });
   }
+  // --- 6. LIGHT / DARK MODE TOGGLE ---
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+
+  // Load saved preference
+  const savedTheme = localStorage.getItem('portfolio-theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+    if (themeIcon) themeIcon.textContent = '☀️';
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+      const isLight = document.body.classList.contains('light-mode');
+      if (themeIcon) themeIcon.textContent = isLight ? '☀️' : '🌙';
+      localStorage.setItem('portfolio-theme', isLight ? 'light' : 'dark');
+    });
+  }
+
+  // --- 7. 3D TILT EFFECT ON PROJECT CARDS ---
+  const projectCards = document.querySelectorAll('.project-card');
+
+  projectCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      // Don't tilt card if user is actively interacting with the 3D canvas
+      if (e.target.closest('#motrilog3dContainer')) return;
+
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const rotX = (-y / rect.height) * 10;
+      const rotY = (x / rect.width) * 10;
+      card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+    });
+  });
+
+  // --- 8. MOTRILOG VIEW MODE SWITCHER ---
+  const tab3dModel = document.getElementById('tab3dModel');
+  const tab3dHologram = document.getElementById('tab3dHologram');
+  const container3d = document.getElementById('motrilog3dContainer');
+  const staticRender = document.getElementById('motrilogStaticRender');
+
+  if (tab3dModel && tab3dHologram && container3d && staticRender) {
+    tab3dModel.addEventListener('click', (e) => {
+      e.stopPropagation();
+      tab3dModel.classList.add('active');
+      tab3dHologram.classList.remove('active');
+      container3d.classList.add('active');
+      staticRender.classList.remove('active');
+      window.dispatchEvent(new Event('resize'));
+    });
+
+    tab3dHologram.addEventListener('click', (e) => {
+      e.stopPropagation();
+      tab3dHologram.classList.add('active');
+      tab3dModel.classList.remove('active');
+      staticRender.classList.add('active');
+      container3d.classList.remove('active');
+    });
+  }
 });
+
